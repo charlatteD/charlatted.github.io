@@ -12,9 +12,6 @@ title: "Research"
 
 5.	Eckel SP, Cockburn M, Shu YH, Deng H, Lurmann FW, Liu L, Gilliland FD. Air pollution affects lung cancer survival. Thorax. Published Online First 2016 Aug 4. DOI:10.1136/thoraxjnl- 2015-207927 [“Editor’s choice”, with linked editorial]
 
-<div align="center">
-   <iframe width="560" height="315" src="https://www.youtube.com/watch?v=OPaX51UnFb0" frameborder="0" allowfullscreen>
-   </iframe>
-</div>
-
-
+\
+I presented my research in DataCon LA 2017: 
+[![IMAGE ALT TEXT HERE]("https://twitter.com/DataConLA/photo")](https://www.youtube.com/watch?v=OPaX51UnFb0)
