@@ -14,4 +14,4 @@ title: "Research"
 
 \
 I presented my research in DataCon LA 2017: 
-[![IMAGE ALT TEXT HERE]("https://twitter.com/DataConLA/photo")](https://www.youtube.com/watch?v=OPaX51UnFb0)
+[![Image name](datacon.png)](https://www.youtube.com/watch?v=OPaX51UnFb0)
