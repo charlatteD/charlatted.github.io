@@ -1,5 +1,20 @@
 ---
-title: "About Me"
+title: "Research"
 ---
 
-Why I am awesome. 
+1.	Deng H, Eckel SP, Urman R, Berhane K, Gilliland FD. Predicting bronchitic symptoms using gradient boosting models for longitudinal data. BMC Medical Research Methodology 2019;19(1):70. DO1: 10.1186/s12874-019-0708-x
+
+2.	Li K, Habre R, Deng H, Urman R, Morrison J, Gilliland FD, Ambite J-L, Stripelis D, Chiang Y-Y, Lin Y, Bui A, King C, Hosseini A, Van Vliet E, Sarrafzadeh M, and Eckel SP. Applying multivariate segmentation methods to human activity recognition from wearable sensors data. JMIR mhealth and uhealth 2019;7(2): e11201. DOI: 10.2196/11201
+
+3.	Urman R, Eckel SP, Deng H, Berhane K, Avol E, Lurmann F, McConnell R, Gilliland FD. Risk effects of near-roadway pollutants, parental stress and asthma status on bronchitic symptoms in children. Environmental Epidemiology 2018; 2(2). DOI: 10.1097/EE9.0000000000000012
+
+4.	Deng H, Eckel SP Liu L, Lurmann FW, Cockburn M, Gilliland FD. Particulate matter air pollution and liver cancer survival. International Journal of Cancer 2017; 141:744–749. PMID:28589567. PMC5505313.
+
+5.	Eckel SP, Cockburn M, Shu YH, Deng H, Lurmann FW, Liu L, Gilliland FD. Air pollution affects lung cancer survival. Thorax. Published Online First 2016 Aug 4. DOI:10.1136/thoraxjnl- 2015-207927 [“Editor’s choice”, with linked editorial]
+
+<div align="center">
+   <iframe width="560" height="315" src="https://www.youtube.com/watch?v=OPaX51UnFb0" frameborder="0" allowfullscreen>
+   </iframe>
+</div>
+
+
