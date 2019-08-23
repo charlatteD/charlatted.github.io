@@ -2,23 +2,33 @@
 title: "Home"
 ---
 
-<font size="4">My name is Huiyu (Charlotte) Deng. I'm a PhD candidate in the division of biostatistics of the department of preventive medicine of the University of Southern California. 
+
+
+```{r, echo=FALSE, out.width = "40%", out.extra='style="float:left; padding:10px"'}
+knitr::include_graphics("p1.png")
+```
+\
+\
+<font size="6">
+&nbsp;&nbsp;&nbsp;Huiyu Deng \
+</font>
+
+<font size="4">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ph.D. Candidate  \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Division of Biostatistics \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Department of Preventive Medicine \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;University of Southern California \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: huiyuden@usc.edu
+
+\
+\
+\
+I'm a PhD candidate in the division of biostatistics of the department of preventive medicine of the University of Southern California. 
+\
 \
 My research interests are: 
 
-- Develop new machine learning algorithm
-- Analyze data from stationary and wearable sensors
-- Time series classification
-- Air pollution and health science 
-- Cancer Epidemiology
+- Machine learning (ML): Use ML models and develop new ML algorithms to conduct personalized disease prediction using stationary and wearable sensors data
+- Cancer Epidemiology: Examine how air pollutions affect cancer survival 
 
 </font>
-
-\
-\
-\
-\
-```{r, echo=FALSE, out.width = "50%", fig.align = "center"}
-knitr::include_graphics("p1.png")
-```
-
