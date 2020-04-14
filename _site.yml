@@ -7,4 +7,6 @@ navbar:
       href: index.html
     - text: "Research"
       href: about.html
+    - text: "Covid-19 in LA"
+      href: Covid-19_LA.html
     
