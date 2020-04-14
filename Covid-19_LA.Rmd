@@ -1,7 +1,74 @@
 ---
-title: "Covid-19_LA"
+title: "Covid-19 in Los Angeles (Updated on 4/13)"
 ---
 
+```{r, echo=FALSE,include=FALSE}
+LAcase<-read.csv("/Users/huiyudeng/Desktop/USC/R code/Personal_site/LACase.csv")
+library(plotly)
+library(reshape2)
+library(ggpubr)
+```
+
+```{r, echo=FALSE,include=FALSE}
+LAcase_subset1<-LAcase[c("Date","Case","Death")]
+LAcase_subset1$Date<-as.Date(LAcase_subset1$Date,format="%m/%d/%y")
+
+data<-LAcase_subset1 %>%
+     arrange(Date)
+
+data<-melt(data, id.vars=c("Date"))
+
+
+g1<-ggplot(data, aes(Date, value, fill = variable)) + 
+  geom_bar(stat="identity", position = position_dodge()) +  
+  theme_bw()+
+  scale_fill_discrete(name="Group",labels=c("Daily diagnosis","Daily deaths"))+
+  scale_x_date(date_labels="%m/%d",date_breaks  ="5 days") +
+  scale_y_continuous(name="Number of cases")+
+  ggtitle("Number of daily diagnosis and deaths")
+
+```
+
 ```{r, echo=FALSE}
-htmltools::includeHTML("PlotLACases.html")
+g1
+```
+
+```{r, echo=FALSE,include=FALSE}
+LAcase_subset1<-LAcase[c("Date","CaseIncreaseRate")]
+LAcase_subset1$Date<-as.Date(LAcase_subset1$Date,format="%m/%d/%y")
+
+data<-LAcase_subset1 %>%
+     arrange(Date)
+
+p1 <- 
+  ggplot() + geom_line(aes(Date, CaseIncreaseRate),data=data, stat="identity")+
+  theme_bw()+
+  scale_x_date(date_labels="%m/%d",date_breaks  ="5 days") +
+  scale_y_continuous(name="Increase rate of daily diagnosis") +
+  ggtitle("Increase rate of daily diagnosis")+
+  scale_y_continuous(limits = c(0, 100))
+
+LAcase_subset1<-LAcase[c("Date","DeathRate")]
+LAcase_subset1$Date<-as.Date(LAcase_subset1$Date,format="%m/%d/%y")
+
+data<-LAcase_subset1 %>%
+     arrange(Date)
+
+p2 <- 
+  ggplot() + geom_line(aes(Date, DeathRate),data=data, stat="identity")+
+  theme_bw()+
+  scale_x_date(date_labels="%m/%d",date_breaks  ="5 days") +
+  scale_y_continuous(name="Increase rate of daily deaths")+
+  ggtitle("Increase rate of daily deaths")+
+  scale_y_continuous(limits = c(0, 100))
+
+
+```
+
+```{r, echo=FALSE,warning = FALSE,message = FALSE}
+p1
+```
+
+```{r, echo=FALSE,warning = FALSE,message = FALSE}
+p2
 ```
