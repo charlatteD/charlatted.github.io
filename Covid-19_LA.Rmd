@@ -1,16 +1,7 @@
 ---
 title: "Covid-19_LA"
-author: "Huiyu Deng"
-date: "4/13/2020"
-output: html_document
 ---
-
-<<insertHTML:[test.html]
-
-etc, etc, etc
 
 ```{r, echo=FALSE}
 htmltools::includeHTML("PlotLACases.html")
 ```
-
-etc, etc, etc
