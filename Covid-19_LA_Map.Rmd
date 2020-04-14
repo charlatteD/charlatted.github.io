@@ -1,0 +1,30 @@
+---
+title: "Map of Covid-19 in Los Angeles County (Updated on 4/14)"
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE  , comment = NA, message= FALSE, warning = FALSE)
+```
+
+```{r, echo=FALSE,include=FALSE}
+LAcase<-read.csv("/Users/huiyudeng/Desktop/USC/R code/Personal_site/LACase.csv")
+library(plotly)
+library(reshape2)
+library(ggpubr)
+library(leaflet)
+library(htmlwidgets)
+library(webshot)
+LACitySpecificCase<-read.csv("/Users/huiyudeng/Desktop/USC/R code/Personal_site/t1.csv")
+```
+
+```{r, echo=FALSE,include=FALSE}
+LAmap<-leaflet(LACitySpecificCase) %>% 
+        addProviderTiles("CartoDB.Positron") %>%
+        addCircles(lng = ~Long, lat = ~Lat, weight = 2, radius = ~sqrt(Case414)*100)
+saveWidget(widget = LAmap,
+           file = "map1.html",
+           selfcontained = FALSE)
+```
+
+```{r, echo=FALSE}
+htmltools::includeHTML("map1.html")
+```
