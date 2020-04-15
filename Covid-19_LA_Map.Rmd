@@ -14,12 +14,16 @@ library(leaflet)
 library(htmlwidgets)
 library(webshot)
 LACitySpecificCase<-read.csv("/Users/huiyudeng/Desktop/USC/R code/Personal_site/t1.csv")
+LACitySpecificCase$DailyIncrease<-round((LACitySpecificCase$Case414-LACitySpecificCase$Case413)/LACitySpecificCase$Case413*100,1)
 ```
 
 ```{r, echo=FALSE,include=FALSE}
 LAmap<-leaflet(LACitySpecificCase) %>% 
         addProviderTiles("CartoDB.Positron") %>%
-        addCircles(lng = ~Long, lat = ~Lat, weight = 2, radius = ~sqrt(Case414)*100)
+        addCircles(lng = ~Long, lat = ~Lat, weight = 2, radius = ~sqrt(Case414)*100,
+                   popup=~paste(City, "<br>",
+                                "Diagnosis: ", Case414, "<br>",
+                                "Daily increase: ",DailyIncrease,"%"))
 saveWidget(widget = LAmap,
            file = "map1.html",
            selfcontained = FALSE)
