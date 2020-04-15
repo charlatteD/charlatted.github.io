@@ -10,4 +10,4 @@ navbar:
     - text: "Covid-19 in LA"
       href: Covid-19_LA.html
     - text: "Map of Covid-19 in LA"
-      href: Covid-19_LA_Map.html
+      href: Covid-19_LA_Map.html 
