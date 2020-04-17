@@ -33,8 +33,27 @@ g1<-ggplot(data, aes(Date, value, fill = variable)) +
 
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE,warning = FALSE,message = FALSE}
 g1
+```
+
+```{r, echo=FALSE,include=FALSE}
+LAcase_subset1<-LAcase[c("Date","CumCaseTrue")]
+LAcase_subset1$Date<-as.Date(LAcase_subset1$Date,format="%m/%d/%y")
+
+data<-LAcase_subset1 %>%
+     arrange(Date)
+
+p <- data %>%
+  plot_ly(x = ~Date, y = ~CumCaseTrue, mode = 'lines+markers') %>% 
+  layout(title = "Cumulative number of diagnosis",
+         xaxis = list(title = "Date"),
+         yaxis = list (title = "Number of cases"))
+```
+
+
+```{r, echo=FALSE,warning = FALSE,message = FALSE}
+p
 ```
 
 ```{r, echo=FALSE,include=FALSE}
