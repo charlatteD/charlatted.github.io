@@ -17,19 +17,29 @@ LACitySpecificCase<-read.csv("/Users/huiyudeng/Desktop/USC/R code/Personal_site/
 LAcase_subset1<-LAcase[c("Date","Case","Death")]
 LAcase_subset1$Date<-as.Date(LAcase_subset1$Date,format="%m/%d/%y")
 
-data<-LAcase_subset1 %>%
-     arrange(Date)
+#data<-LAcase_subset1 %>%
+#     arrange(Date)
 
-data<-melt(data, id.vars=c("Date"))
+#data<-melt(data, id.vars=c("Date"))
+
+g1 <- plot_ly(LAcase_subset1, x = ~Date, y = ~Case, type = 'bar',
+              name = 'Daily diagnosis',
+              marker = list(color = '#6666FF'),
+              width = 1000, height = 500) %>% 
+  add_trace(y = ~Death, name = 'Daily deaths', 
+                       marker = list(color = '#FF9999')) %>% 
+  layout(title = "Daily diagnosis/death",
+         xaxis = list(title = "Date"),
+         yaxis = list (title = "Number of cases"))
 
 
-g1<-ggplot(data, aes(Date, value, fill = variable)) + 
-  geom_bar(stat="identity", position = position_dodge()) +  
-  theme_bw()+
-  scale_fill_manual(values=c("#6666FF", "#FF9999"),name="Group",labels=c("Daily diagnosis","Daily deaths"))+
-  scale_x_date(date_labels="%m/%d",date_breaks  ="5 days") +
-  scale_y_continuous(name="Number of cases")+
-  ggtitle("Number of daily diagnosis and deaths") 
+#g1<-ggplot(data, aes(Date, value, fill = variable)) + 
+#  geom_bar(stat="identity", position = position_dodge()) +  
+#  theme_bw()+
+#  scale_fill_manual(values=c("#6666FF", "#FF9999"),name="Group",labels=c("Daily diagnosis","Daily deaths"))+
+#  scale_x_date(date_labels="%m/%d",date_breaks  ="5 days") +
+#  scale_y_continuous(name="Number of cases")+
+#  ggtitle("Number of daily diagnosis and deaths") 
 
 ```
 
@@ -45,7 +55,9 @@ data<-LAcase_subset1 %>%
      arrange(Date)
 
 p <- data %>%
-  plot_ly(x = ~Date, y = ~CumCaseTrue, mode = 'lines+markers') %>% 
+  plot_ly(x = ~Date, y = ~CumCaseTrue, mode='lines+markers',
+          line =   list(color = '#6666FF'),
+          marker =   list(color = '#6666FF')) %>% 
   layout(title = "Cumulative number of diagnosis",
          xaxis = list(title = "Date"),
          yaxis = list (title = "Number of cases"))
@@ -63,14 +75,22 @@ LAcase_subset1$Date<-as.Date(LAcase_subset1$Date,format="%m/%d/%y")
 data<-LAcase_subset1 %>%
      arrange(Date)
 
-p1 <- 
-  ggplot() + geom_line(aes(Date, CaseIncreaseRate),data=data, stat="identity",color="#6666FF")+
-  geom_point(aes(Date, CaseIncreaseRate),data=data, stat="identity",color="#6666FF")+
-  theme_bw()+
-  scale_x_date(date_labels="%m/%d",date_breaks  ="5 days") +
-  scale_y_continuous(name="Increase rate of daily diagnosis") +
-  ggtitle("Increase rate of daily diagnosis")+
-  scale_y_continuous(limits = c(0, 100))
+p1 <- data %>%
+  plot_ly(x = ~Date, y = ~CaseIncreaseRate, mode = 'lines+markers',
+          line =   list(color = '#6666FF'),
+          marker =   list(color = '#6666FF')) %>% 
+  layout(title = "Increase rate of daily diagnosis",
+         xaxis = list(title = "Date"),
+         yaxis = list (title = "Increase rate of daily diagnosis",range=c(0,100)))
+
+#p1 <- 
+#  ggplot() + geom_line(aes(Date, CaseIncreaseRate),data=data, stat="identity",color="#6666FF")+
+#  geom_point(aes(Date, CaseIncreaseRate),data=data, stat="identity",color="#6666FF")+
+#  theme_bw()+
+#  scale_x_date(date_labels="%m/%d",date_breaks  ="5 days") +
+#  scale_y_continuous(name="Increase rate of daily diagnosis") +
+#  ggtitle("Increase rate of daily diagnosis")+
+#  scale_y_continuous(limits = c(0, 100))
 
 LAcase_subset1<-LAcase[c("Date","DeathRate")]
 LAcase_subset1$Date<-as.Date(LAcase_subset1$Date,format="%m/%d/%y")
@@ -78,14 +98,22 @@ LAcase_subset1$Date<-as.Date(LAcase_subset1$Date,format="%m/%d/%y")
 data<-LAcase_subset1 %>%
      arrange(Date)
 
-p2 <- 
-  ggplot() + geom_line(aes(Date, DeathRate),data=data, stat="identity",color="#FF9999")+ 
-  geom_point(aes(Date, DeathRate),data=data, stat="identity",color="#FF9999")+
-  theme_bw()+
-  scale_x_date(date_labels="%m/%d",date_breaks  ="5 days") +
-  scale_y_continuous(name="Increase rate of daily deaths")+
-  ggtitle("Increase rate of daily deaths")+
-  scale_y_continuous(limits = c(0, 100))
+p2 <- data %>%
+  plot_ly(x = ~Date, y = ~DeathRate, mode = 'lines+markers',
+          line =   list(color = '#FF9999'),
+          marker =   list(color ='#FF9999'))%>% 
+  layout(title = "Increase rate of daily deaths",
+         xaxis = list(title = "Date"),
+         yaxis = list (title = "Increase rate of daily deaths",range=c(0,100)))
+
+#p2 <- 
+#  ggplot() + geom_line(aes(Date, DeathRate),data=data, stat="identity",color="#FF9999")+ 
+#  geom_point(aes(Date, DeathRate),data=data, stat="identity",color="#FF9999")+
+#  theme_bw()+
+#  scale_x_date(date_labels="%m/%d",date_breaks  ="5 days") +
+#  scale_y_continuous(name="Increase rate of daily deaths")+
+#  ggtitle("Increase rate of daily deaths")+
+#  scale_y_continuous(limits = c(0, 100))
 
 
 ```
