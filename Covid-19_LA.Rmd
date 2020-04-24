@@ -1,5 +1,5 @@
 ---
-title: "Covid-19 in Los Angeles (Updated on 4/22)"
+title: "Covid-19 in Los Angeles (Updated on 4/23)"
 ---
 
 ```{r, echo=FALSE,include=FALSE}
